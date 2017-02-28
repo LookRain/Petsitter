@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Pet;
 use App\Post;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -31,5 +32,10 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class, 'author');
+    }
+
+    public function pets()
+    {
+        return $this->hasMany(Pet::class, 'owner');
     }
 }
