@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace petsitter\Http\Controllers;
 
-use App\Post;
+use petsitter\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

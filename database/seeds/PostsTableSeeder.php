@@ -24,13 +24,14 @@ class PostsTableSeeder extends Seeder
         {
             if ($faker->boolean($chanceOfGettingTrue = 60)) {
                 for ($j=0; $j < $faker->numberBetween(1, 5); $j++) {
-                    $start_at = $faker->dateTimeThisYear()->date;
-                    $end_at = Carbon::parse($start_at)->addWeeks($faker->numberBetween(1, 10));
+                    $start_at = $faker->dateTimeThisYear();
+                    $end_at = Carbon::now()->addWeeks($faker->numberBetween(1, 10));
+                    // $end_at = $faker->dateTime('2017-02-29 08:37:17');
                     Post::create([
                         'author' => $users[$i]->id,
                         'start_at' => $start_at,
                         'end_at' => $end_at,
-                        'description' => $faker->text
+                        'description' => $faker->realtext,
                     ]);
                 }
             }

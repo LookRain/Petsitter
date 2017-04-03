@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace petsitter;
 
-use App\User;
+use petsitter\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
