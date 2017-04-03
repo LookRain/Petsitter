@@ -1,6 +1,6 @@
 <?php
 
-namespace petsitter;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

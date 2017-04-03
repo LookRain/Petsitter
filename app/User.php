@@ -1,9 +1,9 @@
 <?php
 
-namespace petsitter;
+namespace App;
 
-use petsitter\Pet;
-use petsitter\Post;
+use App\Pet;
+use App\Post;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
