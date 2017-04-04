@@ -38,7 +38,7 @@
 				<div class="tab-pane fade in active" id="tab1">
 					<div class="list-group">
 						@foreach ($user->pets as $pet)
-						<a href="/post/{{ $pet->id }}" class="list-group-item">
+						<a href="#" class="list-group-item">
 							<strong>
 								Name: {{  $pet->name }}
 							</strong>
