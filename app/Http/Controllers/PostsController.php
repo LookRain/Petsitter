@@ -13,8 +13,41 @@ class PostsController extends Controller
 	// 	$this->middleware('guest');
 	// }
 
+	
+
+	public function index()
+    {
+        $posts = Post::latest()->get();
+    	return view('home', compact('posts'));
+    }
+
+
     public function show(Post $post)
     {
         return view('posts.show', compact('post'));
+    }
+
+
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+
+    public function store()
+    {
+	// store to database then redirect to posts page
+        $this->validate(request(), [
+                'title' => 'required',
+                'body' => 'required',
+            ]);
+
+
+        auth()->user()->publish(
+                new Post(request(['title', 'description', 'start_at', 'end_at']))
+            );
+    	
+
+    	return redirect("/post");
     }
 }

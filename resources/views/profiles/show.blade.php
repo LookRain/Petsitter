@@ -84,11 +84,13 @@
 					<div class="list-group">
 						@foreach ($user->posts as $post)
 						<a href="/post/{{ $post->id }}" class="list-group-item">
+							<strong>Title: {{  $post->title  }}</strong>
+							<br>
 							<strong>
-								Published {{  $post->updated_at->diffForHumans()  }}
+								Published</strong> {{  $post->updated_at->diffForHumans()  }}
 								<br>
 
-							</strong>
+							
 							{{$post->description}}
 							<br>
 							<strong>

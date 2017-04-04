@@ -15,8 +15,8 @@
             <img class="media-object" src="http://placekitten.com/150/150">
         </a>
         <div class="media-body">
-            <h4 class="media-heading"><a href="/post/{{ $post->id }}">{{ $post->getAuthor->name }}</a></h4>
-          <p class="text-right">By {{ $post->getAuthor->name }}</p>
+            <h4 class="media-heading"><a href="/post/{{ $post->id }}">{{ $post->title }}</a></h4>
+          <p class="text-right"><a href="/user/{{  $post->author  }}">By {{ $post->getAuthor->name }}</a></p>
           <p> {{ $post->description }}</p>
           <ul class="list-inline list-unstyled">
             <li><span><i class="glyphicon glyphicon-calendar"></i> {{  $post->updated_at->diffForHumans()  }} </span></li>

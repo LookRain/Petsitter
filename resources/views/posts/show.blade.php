@@ -14,12 +14,18 @@
                 <div class="form-group">
                     <div class="form-item">
                         <h1 style="padding: 10px;">
-                            Listing Details: {{ $post->description }}
+                            Title: {{ $post->title }}
                         </h1>
                     </div>
 
                     <div class="form-item">
-                       <h2 style="padding: 10px;">Caretaker: {{ $post->getAuthor->name }}</h2>
+                        <h3 style="padding: 10px;">
+                            Details: {{ $post->description }}
+                        </h3>
+                    </div>
+
+                    <div class="form-item">
+                       <h2 style="padding: 10px;">Listed By: {{ $post->getAuthor->name }}</h2>
                    </div>
                </div>
 
@@ -67,15 +73,16 @@
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div> -->
                 <div class="form-group">Select Your Pet</label>
-                    <select class="form-control" id="exampleSelect1">
-                        @foreach (Auth::user()->pets as $pet)
-                        <option>{{ $pet->name }} </option>
-                        @endforeach
-                      
-                      
+                    <select class="form-control" id="pet" name="pet">
+                        @for ($i=0; $i < Auth::user()->pets->count(); ++$i) 
+                        <option value="{{  $i  }}">{{ Auth::user()->pets[$i]->name }} </option>
+                        @endfor
+                       {{--  @foreach (Auth::user()->pets as $pet)
+                        @endforeach --}}
                   </select>
-              </div>
-              <div class="form-group">
+                </div>
+                
+              {{-- <div class="form-group">
                 <label for="exampleSelect2">Example multiple select</label>
                 <select multiple class="form-control" id="exampleSelect2">
                   <option>1</option>
@@ -84,18 +91,24 @@
                   <option>4</option>
                   <option>5</option>
               </select>
-          </div>
-          <div class="form-group">
+          </div> --}}
+          {{-- <div class="form-group">
             <label for="exampleTextarea">Example textarea</label>
             <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-        </div>
-        <div class="form-group">
+        </div> --}}
+        {{-- <div class="form-group">
             <label for="exampleInputFile">File input</label>
             <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-        </div>
-        <fieldset class="form-group">
-            <legend>Radio buttons</legend>
+        </div> --}}
+        <div class="form-group">
+                    <label for="exampleInputEmail1">Offer Your Price</label>
+                    <input type="number" class="form-control" name="price" min="0" max="5000" step="0.01">
+                    <small id="emailHelp" class="form-text text-muted">Please offer a price that you think is appropriate for the service the caretaker is providing.</small>
+                </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+       {{--  <fieldset class="form-group">
+            
             <div class="form-check">
               <label class="form-check-label">
                 <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
@@ -114,14 +127,14 @@
                 Option three is disabled
             </label>
         </div>
-    </fieldset>
-    <div class="form-check">
+    </fieldset> --}}
+   {{--  <div class="form-check">
         <label class="form-check-label">
           <input type="checkbox" class="form-check-input">
           Check me out
       </label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  </div> --}}
+  
 </form>
 </div>
 

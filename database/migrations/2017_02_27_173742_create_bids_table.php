@@ -20,7 +20,7 @@ class CreateBidsTable extends Migration
             $table->integer('pet_on_bid')->unsigned();
             $table->timestamp('start_at');
             $table->timestamp('end_at');
-            $table->integer('bid_price')->unsigned();
+            $table->double('bid_price', 15, 8)->unsigned();
             $table->text('bid_message')->nullable();
             $table->timestamps();
 

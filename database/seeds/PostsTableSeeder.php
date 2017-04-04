@@ -34,6 +34,7 @@ class PostsTableSeeder extends Seeder
                         'author' => $users[$i]->id,
                         'start_at' => $started_at,
                         'end_at' => $end_at,
+                        'title' => $faker->realText($faker->numberBetween(20,50)),
                         'description' => $faker->realtext,
                     ]);
                 }

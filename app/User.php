@@ -38,4 +38,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Pet::class, 'owner');
     }
+
+    public function publish(Post $post)
+    {
+        $this->posts()->save($post);
+       
+    }
 }
