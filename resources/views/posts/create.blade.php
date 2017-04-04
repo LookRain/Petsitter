@@ -11,8 +11,8 @@
 				<input type="text" class="form-control" id="title" name="title">
 			</div>
 			<div class="form-group">
-				<label for="body">Description of the pet-sitting service that you are providing: </label>
-				<textarea  type="text" rows="5" class="form-control" id="body" name="body"></textarea>
+				<label for="description">Description of the pet-sitting service that you are providing: </label>
+				<textarea  type="text" rows="5" class="form-control" id="body" name="description"></textarea>
 			</div>
 
 			<label for="form-group" class="col-2 col-form-label">Starting Date and Time of your pet-sitting service: </label>

@@ -4,6 +4,7 @@ namespace App;
 
 use App\Pet;
 use App\Post;
+use App\Bid;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -39,9 +40,21 @@ class User extends Authenticatable
         return $this->hasMany(Pet::class, 'owner');
     }
 
+    public function bids()
+    {
+        return $this->hasManyThrough(Bid::class, Post::class, 'author', 'posted_under');
+    }
+
     public function publish(Post $post)
     {
         $this->posts()->save($post);
        
+    }
+
+    public function offer(Bid $bid)
+    {
+        // $bid = Bid::create(); 
+        // $this->bids()->save($bid);
+        $bid->save();
     }
 }

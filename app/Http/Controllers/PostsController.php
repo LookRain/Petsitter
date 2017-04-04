@@ -39,7 +39,7 @@ class PostsController extends Controller
 	// store to database then redirect to posts page
         $this->validate(request(), [
                 'title' => 'required',
-                'body' => 'required',
+                'description' => 'required',
             ]);
 
 
@@ -48,6 +48,6 @@ class PostsController extends Controller
             );
     	
 
-    	return redirect("/post");
+    	return redirect("post");
     }
 }
