@@ -9,6 +9,7 @@
 			@foreach ($contracts_bidder as $contract)
 			<a href="/post/{{  $contract->regardedBid->getPost->id  }}" class="list-group-item">
 				Signed with <strong>{{  $contract->regardedBid->getPost->getAuthor->name  }}</strong>  {{  $contract->regardedBid->getPost->getAuthor->created_at->diffForHumans()  }}
+				<h3>Listing: </h3> {{  $contract->regardedBid->getPost->title  }}
 				{{-- {{  $contract->regardedBid->getBidder->name  }} --}}
 			</a>
 			<br>
@@ -26,6 +27,7 @@
 			@foreach ($contracts_caretaker as $contract)
 			<a href="/post/{{  $contract->regardedBid->getPost->id  }}" class="list-group-item">
 				Signed with <strong>{{  $contract->regardedBid->getPet->getOwner->name  }}</strong> {{  $contract->regardedBid->getPost->getAuthor->created_at->diffForHumans()  }}
+				<h3>Listing: </h3> {{  $contract->regardedBid->getPost->title  }}
 			</a>
 			<br>
 			@endforeach

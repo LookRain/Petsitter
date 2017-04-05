@@ -30,10 +30,10 @@ class BidsTableSeeder extends Seeder
 
         $initial_counter = 1;
         for ($i = 0; $i < $postCount; ++$i) {
-
-            for ($j = 0; $j < $petsCount; ++$j) {
-                if ($faker->boolean($chanceOfGettingTrue = 10)) {
-                    Bid::create([
+            if ($faker->boolean($chanceOfGettingTrue = 50)) {
+                for ($j = 0; $j < $petsCount; ++$j) {
+                    if ($faker->boolean($chanceOfGettingTrue = 10)) {
+                        Bid::create([
                     'posted_under' => $posts[$i]->id, //  the caretaker's post
                    // 'bidded_by' => $users[$bidder_id]->id,          // care seeker's id
                     'pet_on_bid' => $pets[$j]->id,
@@ -41,9 +41,10 @@ class BidsTableSeeder extends Seeder
                     'end_at' => Carbon::now(),
                     'bid_price' => $faker->numberBetween(10, 100),
                     'bid_message' => $faker->realtext
-                ]);
+                    ]);
+                    }
+                    
                 }
-                
             }
             
             
