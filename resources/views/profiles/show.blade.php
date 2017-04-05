@@ -15,27 +15,35 @@
 
 			</div>
 		</div>
+
 		<div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+			
 			<div class="btn-group" role="group">
-				<button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-					<div class="hidden-xs">Pets</div>
+
+				<button type="button" id="following" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="	glyphicon glyphicon-list" aria-hidden="true"></span>
+					<div class="hidden-xs">Listings</div>
 				</button>
 			</div>
+			
+
 			<div class="btn-group" role="group">
 				<button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 					<div class="hidden-xs">Profile</div>
 				</button>
 			</div>
+
 			<div class="btn-group" role="group">
-				<button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="	glyphicon glyphicon-list" aria-hidden="true"></span>
-					<div class="hidden-xs">Listings</div>
+				<button type="button" id="stars" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+					<div class="hidden-xs">Pets</div>
 				</button>
 			</div>
+			
+
 		</div>
 
 		<div class="well">
 			<div class="tab-content">
-				<div class="tab-pane fade in active" id="tab1">
+				<div class="tab-pane fade in" id="tab3">
 					<div class="list-group">
 					
 					@if (auth()->user()->id == $user->id)
@@ -90,7 +98,7 @@
 					</div>
 				</div>
 
-				<div class="tab-pane fade in" id="tab3">
+				<div class="tab-pane fade in active" id="tab1">
 					<div class="list-group">
 
 						@foreach ($user->posts as $post)
