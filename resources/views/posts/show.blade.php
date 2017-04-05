@@ -3,7 +3,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+        
+        @if(Auth::check())
+            {{  Auth()->user()->name  }}
+        @else
+            not logged in
+        @endif
+       
+        
             <div class="panel panel-default">
+
                 <div class="panel-heading">
                     Listing Details
                 </div>
@@ -43,6 +52,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
+
             <div class="panel-heading">
                 <strong>Offer a Bid</strong>
             </div>
@@ -69,7 +79,11 @@
                     <div class="col-8">
                         <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="end_at">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <br>
+                    
+                    <button type="submit" class="btn btn-primary">Bid</button>
+                  
+                    
                 </form>
             </div>
         </div>

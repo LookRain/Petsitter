@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-	protected $fillable = ['title', 'body', 'start_at', 'end_at'];
+	protected $fillable = ['title', 'description', 'start_at', 'end_at'];
     public function getAuthor()
     {
         return $this->belongsTo(User::class, 'author');

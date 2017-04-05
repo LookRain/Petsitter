@@ -8,7 +8,7 @@ Auth::routes();
 
 Route::post('post/{post}/bid', 'BidsController@store');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'PostsController@index');
 
 Route::get('/user/{user}', 'ProfileController@index');
 

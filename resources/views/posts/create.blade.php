@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-	<div class="col-md-12 blog-main">
+	<div class="col-md-12">
 		<form method="POST" action="/post/new">
 
 			{{  csrf_field() }}
@@ -12,8 +12,9 @@
 			</div>
 			<div class="form-group">
 				<label for="description">Description of the pet-sitting service that you are providing: </label>
-				<textarea  type="text" rows="5" class="form-control" id="body" name="description"></textarea>
+				<textarea type="text" rows=5 class="form-control" id="body" name="description"></textarea>
 			</div>
+			
 
 			<label for="form-group" class="col-2 col-form-label">Starting Date and Time of your pet-sitting service: </label>
 			<div class="col-8">

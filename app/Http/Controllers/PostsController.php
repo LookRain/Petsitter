@@ -42,10 +42,19 @@ class PostsController extends Controller
                 'description' => 'required',
             ]);
 
-
+        // auth()->user()->publish(Post::create([
+        //     'description' => request('description'),
+        //     'author' => auth()->user()->id,
+        //     'title' => request('title'),
+        //     'start_at' => request('start_at'),
+        //     'end_at' => request('end_at')
+        //     ]));
+        // dd(DB::getQueryLog());
+        // $post = new Post(request(['start_at', 'end_at', 'title', 'description']));
         auth()->user()->publish(
-                new Post(request(['title', 'description', 'start_at', 'end_at']))
+                new Post(request(['start_at', 'end_at', 'title', 'description']))
             );
+        // dd($post);
     	
 
     	return redirect("post");
