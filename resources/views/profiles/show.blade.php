@@ -82,8 +82,10 @@
 
 				<div class="tab-pane fade in" id="tab3">
 					<div class="list-group">
+
 						@foreach ($user->posts as $post)
-						<a href="/post/{{ $post->id }}" class="list-group-item">
+						@if ($post && $post->signed_contract)
+						<a href="/post/{{ $post->id }}" class="list-group-item" style="background-color:#a8a8a8;">
 							<strong>Title: {{  $post->title  }}</strong>
 							<br>
 							<strong>
@@ -102,6 +104,27 @@
 								Ending Date: 
 							</strong>
 							{{  Carbon\Carbon::parse($post->end_at)->format('d/m/Y')  }}</a>
+							@else
+							<a href="/post/{{ $post->id }}" class="list-group-item">
+							<strong>Title: {{  $post->title  }}</strong>
+							<br>
+							<strong>
+								Published</strong> {{  $post->updated_at->diffForHumans()  }}
+								<br>
+
+							
+							{{$post->description}}
+							<br>
+							<strong>
+								Starting Date: 
+							</strong>
+							{{  Carbon\Carbon::parse($post->start_at)->format('d/m/Y')  }}
+							<br>
+							<strong>
+								Ending Date: 
+							</strong>
+							{{  Carbon\Carbon::parse($post->end_at)->format('d/m/Y')  }}</a>
+							@endif
 							@endforeach
 						</div>
 

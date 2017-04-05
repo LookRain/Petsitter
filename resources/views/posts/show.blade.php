@@ -50,13 +50,23 @@
                     @foreach($post->bids as $bid)
                         @if ($post->signed_contract)
                             @if ($bid->id == $signed_bid_id) 
-                                <h1 style="color:red;">SIGNED!!</h1>
+                                <h1 style="color:black; background-color: red;">Successful Bid!</h1>
                             @endif
                         @endif
                     <strong><h3>Bidder: </strong>{{ $bid->getBidder->name }}</h3>
-                    <strong><h3>Pet: </strong>{{ $bid->getPet->name }}</h3>
-                    <strong><h3>Bidding message:</h3></strong>{{ $bid->bid_message }}
-                    <strong><h4>Bidding price:</h4></strong>{{ $bid->bid_price }}
+                    <strong><h3>Pet: {{ $bid->getPet->name }}</h3>
+                    <strong><h5>Bidding message:</strong> {{ $bid->bid_message }}</h5>
+                    <strong><h4>Bid Id:</strong> {{ $bid->id }}</h4>
+                    <strong><h4>Bidding price:</strong> {{ $bid->bid_price }}</h4>
+                    <br>
+                    <form method="POST"  action="/post/{{  $post->id  }}/accept" >
+                    {{  csrf_field()  }}
+                        <input type="hidden" value="{{  $bid->id  }}" name="bid_id" />
+                        <input type="submit" value="Accept This Bid" class="btn">
+
+                    </form>
+                    
+
                     <hr> 
                     @endforeach()
                 </div>

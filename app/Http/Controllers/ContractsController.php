@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contract;
 use App\User;
+use App\Post;
 use Illuminate\Http\Request;
 
 class ContractsController extends Controller
@@ -34,13 +35,9 @@ class ContractsController extends Controller
         foreach ($contracts_array as $contract)
         {
             $bidder_id = $contract->regardedBid->getBidder->id;
-            // echo("bidder id: ");
-            // echo($bidder_id);
-            // echo("\n");
+
             $caretaker_id = $contract->regardedBid->getPost->getAuthor->id;
-            // echo("caretaker id: ");
-            // echo($caretaker_id);
-            // echo("\n");
+
             if (auth()->user()->id == $bidder_id) {
                 // echo($contract->id);
                 array_push($contracts_as_bidder, $contract);
@@ -72,9 +69,13 @@ class ContractsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $post)
     {
-        //
+        Contract::create([
+            'signed_under'=> request('bid_id'),
+            'signed_under_post'=> $post->id,
+            ])->save();
+        return back();
     }
 
     /**

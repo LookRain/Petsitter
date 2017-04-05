@@ -23,7 +23,7 @@
               @if ($post->signed_contract)
               <a href="/post/{{ $post->id }}"><h4 class="media-heading" style="color:red;">{{ $post->title }}</h4></a>
               @else 
-              <a href="/post/{{ $post->id }}"><h4 class="media-heading" style="color:#048c16">{{ $post->title }}</h4></a>
+            <a href="/post/{{ $post->id }}"><h4 class="media-heading" style="color:#048c16">{{ $post->title }}</h4></a>
             @endif
           <p class="text-right"><a href="/user/{{  $post->author  }}">By {{ $post->getAuthor->name }}</a></p>
           <p> {{ $post->description }}</p>
