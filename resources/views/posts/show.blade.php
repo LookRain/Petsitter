@@ -4,45 +4,61 @@
     <div class="row">
         <div class="col-md-12">
         
-        @if(Auth::check())
-            {{  Auth()->user()->name  }}
-        @else
-            not logged in
-        @endif
-       
         
+       
+       
+            @if ($post->signed_contract)
+                @php ($signed_bid_id = $post->signed_contract->signed_under)
+            @endif
             <div class="panel panel-default">
 
                 <div class="panel-heading">
                     Listing Details
                 </div>
+                <div class="panel-body">
+
                 <div class="form-group">
                     <div class="form-item">
                         <h1 style="padding: 10px;">
                           Title: {{ $post->title }}
                       </h1>
+                      <hr>
                   </div>
                   <div class="form-item">
                     <h3 style="padding: 10px;">
                       Details: {{ $post->description }}
                   </h3>
-              </div>
-              <div class="form-item">
+                  <hr>
+                    <div class="form-item">
                 <h2 style="padding: 10px;">Listed By: {{ $post->getAuthor->name }}</h2>
             </div>
-        </div>
+        
         <h3 style="padding: 10px;">Start at: {{  $post->start_at  }}</h3>
         <h3 style="padding: 10px;">End at: {{  $post->end_at  }}</h3>
+
         <hr>
+              </div>
+              </div>
+              </div>
+
+            
+        </div>
+        <div class="panel panel-default">
         <div class="form-group">
             <div class="form-item">
                 <div class="panel-body">
                     @foreach($post->bids as $bid)
+                        @if ($post->signed_contract)
+                            @if ($bid->id == $signed_bid_id) 
+                                <h1 style="color:red;">SIGNED!!</h1>
+                            @endif
+                        @endif
                     <strong><h3>Bidder: </strong>{{ $bid->getBidder->name }}</h3>
                     <strong><h3>Pet: </strong>{{ $bid->getPet->name }}</h3>
                     <strong><h3>Bidding message:</h3></strong>{{ $bid->bid_message }}
                     <strong><h4>Bidding price:</h4></strong>{{ $bid->bid_price }}
-                    <hr> @endforeach()
+                    <hr> 
+                    @endforeach()
                 </div>
             </div>
         </div>
@@ -56,14 +72,17 @@
             <div class="panel-heading">
                 <strong>Offer a Bid</strong>
             </div>
+            @if (auth()->check())
             <div class="panel-body">
             <form method="POST" action="/post/{{ $post->id }}/bid">
                     {{ csrf_field() }}
                     <div class="form-group">Select Your Pet</label>
                         <select class="form-control" id="pet" name="pet">
+                        
                             @foreach(auth()->user()->pets as $pet)
                             <option value="{{ $pet->id }}">{{ $pet->name }}</option>
                             @endforeach
+                        
                         </select>
                     </div>
                     <div class="form-group">
@@ -86,6 +105,9 @@
                     
                 </form>
             </div>
+            @else
+                <div class="panel-body">please <a href="{{  route('login')  }}">log in</a> to offer a bid</div>
+            @endif
         </div>
     </div>
 </div>

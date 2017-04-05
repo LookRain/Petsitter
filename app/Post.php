@@ -20,7 +20,7 @@ class Post extends Model
     	return $this->hasMany(Bid::class, 'posted_under');
     }
 
-    public function contracts()
+    public function signed_contract()
     {
     	return $this->hasOne(Contract::class, 'signed_under_post');
     }

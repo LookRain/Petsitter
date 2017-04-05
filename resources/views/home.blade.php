@@ -9,13 +9,22 @@
 {{-- TO DO   --}}
 {{-- display in multiple pages in different orders   --}}
     @foreach ($posts as $post)
-    <div class="well">
+    @if ($post->signed_contract)
+    <div class="well" style="background-color:#cfd2d6;">
+    @else
+    <div class="well" style="background-color:#ffffff;">
+    @endif
       <div class="media">
-        <a class="pull-left" href="#">
+        <a class="pull-left">
             <img class="media-object" src="http://placekitten.com/150/150">
         </a>
         <div class="media-body">
-            <h4 class="media-heading"><a href="/post/{{ $post->id }}">{{ $post->title }}</a></h4>
+        
+              @if ($post->signed_contract)
+              <a href="/post/{{ $post->id }}"><h4 class="media-heading" style="color:red;">{{ $post->title }}</h4></a>
+              @else 
+              <a href="/post/{{ $post->id }}"><h4 class="media-heading" style="color:#048c16">{{ $post->title }}</h4></a>
+            @endif
           <p class="text-right"><a href="/user/{{  $post->author  }}">By {{ $post->getAuthor->name }}</a></p>
           <p> {{ $post->description }}</p>
           <ul class="list-inline list-unstyled">
