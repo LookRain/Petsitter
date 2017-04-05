@@ -17,8 +17,15 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-        
+
+            $table->unsignedInteger('signed_under')->unique();
+
+            $table->timestamp('contract_start_at');
+            $table->timestamp('contract_end_at');
+
             $table->timestamps();
+
+            $table->foreign('signed_under')->references('id')->on('bids')->onDelete('cascade');
         });
     }
 

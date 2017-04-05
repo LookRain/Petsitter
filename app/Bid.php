@@ -2,8 +2,9 @@
 
 namespace App;
 
-use App\User;
 use App\Pet;
+use App\Post;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Bid extends Model
@@ -21,6 +22,12 @@ class Bid extends Model
     {
     	
     	return $this->getPet->getOwner();
+    }
+
+    public function getPost()
+    {
+        
+        return $this->belongsTo(Post::class, 'posted_under');
     }
 
     // public function addBid()

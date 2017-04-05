@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Contract;
+use App\User;
 use Illuminate\Http\Request;
 
-class ContractController extends Controller
+class ContractsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,39 @@ class ContractController extends Controller
      */
     public function index()
     {
-        //
+        // $user = auth()->user();
+
+        // $contracts = Contract::where()
+
+
+        $contracts_array = Contract::all();
+  
+        $contracts_as_bidder = [];
+        $contracts_as_caretaker = [];
+
+        foreach ($contracts_array as $contract)
+        {
+            $bidder_id = $contract->regardedBid->getBidder->id;
+            // echo("bidder id: ");
+            // echo($bidder_id);
+            // echo("\n");
+            $caretaker_id = $contract->regardedBid->getPost->getAuthor->id;
+            // echo("caretaker id: ");
+            // echo($caretaker_id);
+            // echo("\n");
+            if (auth()->user()->id == $bidder_id) {
+                // echo($contract->id);
+                array_push($contracts_as_bidder, $contract);
+            } elseif (auth()->user()->id == $caretaker_id) {
+                array_push($contracts_as_caretaker, $contract);
+            }
+        }
+        $contracts_bidder = collect($contracts_as_bidder);
+        $contracts_caretaker = collect($contracts_as_caretaker);
+
+
+
+        return view('contract.index', compact('contracts_bidder', 'contracts_caretaker'));
     }
 
     /**

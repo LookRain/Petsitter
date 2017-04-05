@@ -19,3 +19,5 @@ Route::get('post/{post}', 'PostsController@show');
 
 Route::post('post/new', 'PostsController@store');
 
+
+Route::get('/contract', 'ContractsController@index');
