@@ -37,6 +37,16 @@
 			<div class="tab-content">
 				<div class="tab-pane fade in active" id="tab1">
 					<div class="list-group">
+					
+					@if (auth()->user()->id == $user->id)
+					<form action="/pet/new" method="GET">
+					<input type="submit" value="Add Pet" class="btn btn-success">
+					
+					</form>
+					<br>
+					@endif
+
+					
 						@foreach ($user->pets as $pet)
 						<a href="#" class="list-group-item">
 							<strong>

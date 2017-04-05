@@ -47,7 +47,8 @@
                     </div>
                     @if (auth()->check())
                     <ul class="nav navbar-nav navbar-right">
-            
+
+                
                     <li><a href="/post/new">New Listing</a></li>
                       <li><a href="/user/{{  Auth::user()->id  }}">Profile</a></li>
                       <li><a href="/contract/">Past Contracts</a></li>

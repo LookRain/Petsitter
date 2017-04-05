@@ -18,6 +18,7 @@ Route::get('post/{post}', 'PostsController@show');
 
 Route::post('post/new', 'PostsController@store');
 
-
+Route::get('/pet/new', 'PetsController@create');
+Route::post('/pet/new', 'PetsController@store');
 
 Route::get('/contract', 'ContractsController@index');

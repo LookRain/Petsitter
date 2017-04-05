@@ -48,8 +48,7 @@ class User extends Authenticatable
     public function publish(Post $post)
     {
         $this->posts()->save($post);
-        // $post->save();
-       
+        // $post->save();  
     }
 
     public function offer(Bid $bid)
@@ -57,5 +56,11 @@ class User extends Authenticatable
         // $bid = Bid::create(); 
         // $this->bids()->save($bid);
         $bid->save();
+    }
+
+    public function addPet(Pet $pet)
+    {
+        $this->pets()->save($pet);
+        // $post->save();  
     }
 }
