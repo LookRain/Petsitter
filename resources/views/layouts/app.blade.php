@@ -14,6 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="/css/profile-box.css" rel="stylesheet">
+    <link href="/css/search.css" rel="stylesheet">
 
     {{-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" > --}}
 

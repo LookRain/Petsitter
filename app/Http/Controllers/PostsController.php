@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -17,7 +18,11 @@ class PostsController extends Controller
 
 	public function index()
     {
+        // DB::enableQueryLog();
+
+
         $posts = Post::latest()->get();
+        // dd(DB::getQueryLog());
     	return view('home', compact('posts'));
     }
 
