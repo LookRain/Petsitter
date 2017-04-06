@@ -9,7 +9,10 @@ Route::post('post/{post}/bid', 'BidsController@store');
 
 Route::get('/home', 'PostsController@index');
 
+Route::get('/user/edit', 'ProfileController@edit');
 Route::get('/user/{user}', 'ProfileController@index');
+
+Route::post('/user/edit', 'ProfileController@update');
 
 Route::get('post', 'PostsController@index');
 

@@ -38,6 +38,51 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
+                            <label for="gender" class="col-md-4 control-label">Gender</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control" id="gender" name="gender" required>
+                                    <option value='male'>Male</option>
+                                    <option value='female'>Female</option>
+                                </select>
+
+                                @if ($errors->has('gender'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('age') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
+                            <label for="age" class="col-md-4 control-label">Age</label>
+
+                            <div class="col-md-6">
+                                <input type="number" id="age" type="text" class="form-control" name="age" value="{{ old('age') }}" min="0" max="200" step="1" required>
+
+                                @if ($errors->has('age'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('age') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}">
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

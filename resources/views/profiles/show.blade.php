@@ -86,14 +86,42 @@
 				</div>
 
 				<div class="tab-pane fade in" id="tab2">
+				@if (auth()->user()->id == $user->id)
+					<form action="/user/edit" method="GET">
+					<input type="submit" value="Edit Profile" class="btn btn-success">
+					
+					</form>
+					<br>
+					@endif
 					<div class="panel panel-default">
+
 						<div class="panel-body">
+
 							<strong>Name: </strong>{{  $user->name  }}
 						</div>
 					</div>
+
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<strong>Contact Email: </strong>{{  $user->email  }}
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<strong>Gender: </strong>{{  $user->gender  }}
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<strong>Age: </strong>{{  $user->age  }}
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<strong>Address: </strong>{{  $user->address  }}
 						</div>
 					</div>
 				</div>
