@@ -25,3 +25,5 @@ Route::get('/pet/new', 'PetsController@create');
 Route::post('/pet/new', 'PetsController@store');
 
 Route::get('/contract', 'ContractsController@index');
+
+Route::get('/admin', 'AdminController@index');

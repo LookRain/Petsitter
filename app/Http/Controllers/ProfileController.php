@@ -16,6 +16,8 @@ class ProfileController extends Controller
     }
     public function index(User $user)
     {
+    	
+
 
 		return view('profiles.show', compact('user'));
     }
@@ -28,11 +30,8 @@ class ProfileController extends Controller
 
     public function update()
     {
-    	$query = User::latest()->toSql();
-
-    	DB::enableQueryLog();
-    	dd($query);
- 
+    	
+ 		// DB::enableQueryLog();
     	$user = auth()->user();
 
     	$user->name = request('name');
@@ -40,7 +39,7 @@ class ProfileController extends Controller
     	$user->address = request('address');
 
     	$user->save();
-
+    	// dd(DB::getQueryLog());
 
     	return view('profiles.show', compact('user'));
 
