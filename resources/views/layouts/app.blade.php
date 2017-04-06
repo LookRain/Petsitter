@@ -51,10 +51,19 @@
 
                 
                     <li><a href="/post/new">New Listing</a></li>
+
                       <li><a href="/user/{{  Auth::user()->id  }}">Profile</a></li>
+
+                      @if(auth()->user()->isAdmin == 1)
+                      <li><a href="/admin/">Admin</a></li>
+                      @endif
+
                       <li><a href="/contract/">Past Contracts</a></li>
+
                   </ul>
                   @endif
+
+
 
                   <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
