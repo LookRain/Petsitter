@@ -1,7 +1,7 @@
 # PetSitter
-##CS2102 Project
+CS2102 Project
 
-##How to setup:
+## How to setup:
 * Clone or download the repo
 * Create .env file from the template .env.example file, change configuration in .env
 * Create an empty cache folder under bootstrap
