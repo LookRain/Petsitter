@@ -33,6 +33,7 @@ class NotificationController extends Controller
         }
         $contracts_bidder = collect($contracts_as_bidder);
         $contracts_caretaker = collect($contracts_as_caretaker);
+      
 
 
 

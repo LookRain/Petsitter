@@ -12,7 +12,7 @@
 					@php ($bidder = $notification->bid->getBidder->name)
 					@php ($post = $notification->post)			
 					<a href="/post/{{$post->id}}"><div class="alert alert-info">
-						
+
 						<strong>{{  $bidder  }}</strong> Made a bid on your post <strong>{{  $post->title  }}</strong>.
 
 					</div> </a>
@@ -21,15 +21,14 @@
 				</div>
 				<div class="panel panel-body">
 					@foreach ($contracts_bidder as $contract)
-					@if ($notification->bid->getAuthor->id == auth()->user()->id)
-		
-
-					<a href="/post/{{  $contract->regardedBid->getPost->id  }}><div class="alert alert-success">
+					
+					<a href="/post/{{  $contract->regardedBid->getPost->id  }}">
+					<div class="alert alert-success">
 						
 						<strong>{{  $contract->regardedBid->getPost->getAuthor->name  }}</strong> Accepted your bid! <strong>{{  $contract->regardedBid->getPost->title  }}</strong>.
 
 					</div> </a>
-					@endif
+				
 					@endforeach
 				</div>
 
