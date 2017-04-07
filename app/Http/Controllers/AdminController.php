@@ -48,9 +48,6 @@ class AdminController extends Controller
 
 	public function updateUser()
 	{
-		
-
-
 		$user = User::find(request('id'));
 		// $temp = request('is_admin');
 		// dd($temp);
@@ -59,11 +56,10 @@ class AdminController extends Controller
 		} else {
 			$user->isAdmin = 0;
 		}
-		
 
 		$user->save();
 
-		return view('admin.index');
+		return redirect('/admin');
 		// return redirect('/');
 	}
 
@@ -72,12 +68,15 @@ class AdminController extends Controller
 		$user = User::find(request('id'));
 		$user->delete();
 
-		return view('admin.index');
+		return redirect('/admin');
 	}
 
 
 	public function editBid(Request $request, Bid $b)
 	{
+		// $id = request('bid');
+		// $exists = !is_null(Bid::find($id));
+		// dd($exists);
 		$this->validate($request, [
         'bid' => 'required',
         'bid' => 'exists:bids,id'
@@ -87,8 +86,7 @@ class AdminController extends Controller
     	]);
 
 		$id = request('bid');
-		// $
-		// dd($id);
+
 		$bid = Bid::find($id);
 		return view('admin.bid', compact('bid'));
 	}
@@ -98,7 +96,7 @@ class AdminController extends Controller
 		$bid = Bid::find(request('id'));
 		$bid->delete();
 
-		return view('admin.index');
+		return redirect('/admin');
 	}
 
 
@@ -123,6 +121,6 @@ class AdminController extends Controller
 		$contract = Contract::find(request('id'));
 		$contract->delete();
 
-		return view('admin.index');
+		return redirect('/admin');
 	}
 }
