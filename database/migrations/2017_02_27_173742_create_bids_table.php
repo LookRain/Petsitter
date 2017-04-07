@@ -18,8 +18,8 @@ class CreateBidsTable extends Migration
             $table->unsignedInteger('posted_under')->unsigned();
             //$table->integer('bidded_by')->unsigned();
             $table->integer('pet_on_bid')->unsigned();
-            $table->timestamp('start_at');
-            $table->timestamp('end_at');
+            // $table->date('start_at');
+            // $table->date('end_at');
             $table->double('bid_price', 15, 8)->unsigned();
             $table->text('bid_message')->nullable();
             $table->timestamps();

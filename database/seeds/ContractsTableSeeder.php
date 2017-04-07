@@ -37,8 +37,6 @@ class ContractsTableSeeder extends Seeder
                 Contract::create([
                     'signed_under' => $rand_bid->id,
                     'signed_under_post'=> $post->id,
-                    'contract_start_at' => Carbon::now(),
-                    'contract_end_at' => Carbon::now()
                     ]);
             }
         }

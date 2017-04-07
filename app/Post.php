@@ -15,6 +15,9 @@ class Post extends Model
         return $this->belongsTo(User::class, 'author');
     }
 
+
+
+
     public function bids()
     {
     	return $this->hasMany(Bid::class, 'posted_under');

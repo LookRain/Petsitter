@@ -37,8 +37,8 @@ class BidsTableSeeder extends Seeder
                     'posted_under' => $posts[$i]->id, //  the caretaker's post
                    // 'bidded_by' => $users[$bidder_id]->id,          // care seeker's id
                     'pet_on_bid' => $pets[$j]->id,
-                    'start_at' => Carbon::now(),
-                    'end_at' => Carbon::now(),
+                    // 'start_at' => Carbon::now(),
+                    // 'end_at' => Carbon::now(),
                     'bid_price' => $faker->numberBetween(10, 100),
                     'bid_message' => $faker->realtext
                     ]);

@@ -21,9 +21,6 @@ class CreateContractsTable extends Migration
             $table->unsignedInteger('signed_under')->unique();
             $table->unsignedInteger('signed_under_post')->unique();
 
-            $table->timestamp('contract_start_at');
-            $table->timestamp('contract_end_at');
-
             $table->timestamps();
 
             $table->foreign('signed_under')->references('id')->on('bids')->onDelete('cascade');

@@ -38,3 +38,5 @@ Route::post('/admin/bid/delete', 'AdminController@deleteBid');
 
 Route::get('/admin/contract', 'AdminController@editContract');
 Route::post('/admin/contract/delete', 'AdminController@deleteContract');
+
+Route::post('/test', 'SearchController@test');

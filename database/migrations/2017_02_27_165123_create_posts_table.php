@@ -16,10 +16,11 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('author')->unsigned();
-            $table->timestamp('start_at')->nullable();
-            $table->timestamp('end_at');
+            $table->date('start_at')->nullable();
+            $table->date('end_at');
             $table->text('title');
             $table->text('description');
+            $table->double('listing_price', 15, 8)->unsigned();
             $table->timestamps();
 
             $table->foreign('author')->references('id')->on('users')->onDelete('cascade');
