@@ -62,6 +62,8 @@
 
                       <li><a href="/contract/">Past Contracts</a></li>
 
+                      <li><a href="/notification/">Notifications</a></li>
+
                   </ul>
                   @endif
 

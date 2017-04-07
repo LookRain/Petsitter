@@ -70,11 +70,9 @@
                     <form method="POST"  action="/post/{{  $post->id  }}/accept" >
                         {{  csrf_field()  }}
                         <input type="hidden" value="{{  $bid->id  }}" name="bid_id" />
-                        <input type="submit" value="Accept This Bid" class="btn">
+                        <input type="submit" value="Accept This Bid" class="btn">   
                     </form>
                     @endif
-
-
                     <hr> 
                     @endforeach()
 
@@ -109,23 +107,16 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Offer Your Price</label>
+                        <label for="price">Offer Your Price</label>
                         <input type="number" class="form-control" name="price" min="0" max="5000" step="0.01">
                         <small id="emailHelp" class="form-text text-muted">Please offer a price that you think is appropriate for the service the caretaker is providing.</small>
                     </div>
-                    <div class="col-8">
-                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="start_at">
-                    </div>
-
-                    <label for="form-group" class="col-2 col-form-label">Ending Date and Time of your pet-sitting service: </label>
-                    <div class="col-8">
-                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input" name="end_at">
-                    </div>
+                   
                     <br>
                     
                     <button type="submit" class="btn btn-primary">Bid</button>
 
-                    
+                    @include('layouts.errors')
                 </form>
             </div>
             @endif

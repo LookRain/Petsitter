@@ -12,60 +12,81 @@
     <div class="col-md-12">
 
       <div class="panel panel-default">
-
+        
         <div class="panel-body">
+          
+          <form method="POST" action="/search">
+            {{  csrf_field()  }}
+            <div class="row">
+              <div class="col-md-5">
+                Search For Keyword
+                <div class="form-group">
+                  <label class="sr-only" for="keyword">Key Word</label>
+                  <input type="text" class="form-control" id="keyword" placeholder="Key Word" name="keyword">
+                </div>
+              </div>
+              <div class="col-md-2">
+                Start From
+                <div class="form-group">
+                  <label class="sr-only" for="start_at">Start At</label>
+                  <div class="input-group">
+                    <input type="date" class="form-control" id="checkin" placeholder="Check in" name="start_at">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                Until
+                <div class="form-group">
+                  <label class="sr-only" for="end_at">End At</label>
+                  <div class="input-group">
+                    <input type="date" class="form-control" id="checkout" placeholder="Check out" name="end_at">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                Available
+                <div class="form-group">
+                  
+                  <label class="switch">
+                    <br>
+                    <input type="checkbox" name="check" value="yes">
+                    <div class="slider round"></div>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                Order By
+                <div class="form-group">
+                  <label class="sr-only" for="orderby">Order By</label>
+                  <select id="orderby" name="orderby" class="form-control">
+                    <option value="1">Most Recent</option>
+                    <option value="2">Cheapest</option>
+                    <option value="3">Order by Name</option>                   
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
 
-          <form method="POST" action="/test">
-                {{  csrf_field()  }}
-            <div class="col-md-4">
-            Search For Keyword
-              <div class="form-group">
-                <label class="sr-only" for="keyword">Key Word</label>
-                <input type="text" class="form-control" id="keyword" placeholder="Key Word" name="keyword">
-              </div>
-            </div>
-            <div class="col-md-2">
-            Start From
-              <div class="form-group">
-                <label class="sr-only" for="start_at">Start At</label>
-                <div class="input-group">
-                  <input type="date" class="form-control" id="checkin" placeholder="Check in" name="start_at">
+              <div class="col-md-3">
+                Minimum Price
+                <div class="form-group">
+                  <label class="sr-only" for="min">Min. Price</label>
+                  <input type="number" class="form-control" id="min" placeholder="Min. Price" name="min">
                 </div>
               </div>
-            </div>
-            <div class="col-md-2">
-            Until
-              <div class="form-group">
-                <label class="sr-only" for="end_at">End At</label>
-                <div class="input-group">
-                  <input type="date" class="form-control" id="checkout" placeholder="Check out" name="end_at">
+
+              <div class="col-md-3">
+                Maximum Price
+                <div class="form-group">
+                  <label class="sr-only" for="max">Max. Price</label>
+                  <input type="number" class="form-control" id="max" placeholder="Max. Price" name="max">
                 </div>
               </div>
-            </div>
-            <div class="col-md-1">
-            Available
-              <div class="form-group">
-              
-                <label class="switch">
-                <br>
-                <input type="checkbox" name="check" value="yes">
-                  <div class="slider round"></div>
-                </label>
+              <br>
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-default btn-primary">Search</button>
               </div>
-            </div>
-            <div class="col-md-2">
-            Order By
-                        <div class="form-group">
-                          <label class="sr-only" for="orderby">Order By</label>
-                          <select id="orderby" name="orderby" class="form-control">
-                              <option value="1">Most Recent</option>
-                              <option value="2">Cheapest</option>
-                              <option value="3">Order by Name</option>                   
-                          </select>
-                        </div>
-                      </div>
-            <div class="col-md-1">
-              <button type="submit" class="btn btn-default btn-primary">Search</button>
             </div>
           </form>
 

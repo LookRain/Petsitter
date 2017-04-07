@@ -45,6 +45,9 @@ class PostsController extends Controller
         $this->validate(request(), [
                 'title' => 'required',
                 'description' => 'required',
+                'start_at' => 'required|date',
+                'end_at' => 'required|date|after_or_equal:start_at',
+                'listing_price' => 'required'
             ]);
 
         // auth()->user()->publish(Post::create([
@@ -57,7 +60,7 @@ class PostsController extends Controller
         // dd(DB::getQueryLog());
         // $post = new Post(request(['start_at', 'end_at', 'title', 'description']));
         auth()->user()->publish(
-                new Post(request(['start_at', 'end_at', 'title', 'description']))
+                new Post(request(['start_at', 'end_at', 'title', 'description', 'listing_price']))
             );
         // dd($post);
     	

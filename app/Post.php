@@ -9,13 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-	protected $fillable = ['title', 'description', 'start_at', 'end_at'];
+	protected $fillable = ['title', 'description', 'start_at', 'end_at', 'listing_price'];
     public function getAuthor()
     {
         return $this->belongsTo(User::class, 'author');
     }
-
-
 
 
     public function bids()

@@ -11,6 +11,11 @@ class BidsController extends Controller
     //
     public function store(Post $post)
     {
+
+        $this->validate(request(), [
+                'pet' => 'required',
+                'price' => 'required'
+            ]);
     	// $this->validate(request(), [
      //            'title' => 'required',
      //            'description' => 'required',
@@ -24,8 +29,6 @@ class BidsController extends Controller
         	'pet_on_bid' => request('pet'),
         	'posted_under' => $post->id,
         	'bid_price' => request('price'),
-        	'start_at' => request('start_at'),
-        	'end_at' => request('end_at')
         ]));
         
     	return back();
