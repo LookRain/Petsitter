@@ -109,7 +109,7 @@
           @endif
           <div class="media">
             <a class="pull-left">
-              <img class="media-object" src="http://placekitten.com/150/150">
+              <img class="media-object" src="pictures/profile.jpeg">
             </a>
             <div class="media-body">
 

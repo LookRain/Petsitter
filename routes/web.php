@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 Route::get('/', 'PostsController@index');
 
 
@@ -43,3 +45,5 @@ Route::post('/admin/contract/delete', 'AdminController@deleteContract');
 Route::post('/search', 'SearchController@search');
 
 Route::get('/notification', 'NotificationController@index');
+
+Route::post('/avatars', 'AvatarsController@store');
